@@ -23,13 +23,6 @@ pipeline {
                 sh 'mvn package'
             }
         }
-
-        stage('Archive Artifacts') {
-            steps {
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
-                junit '**/target/surefire-reports/*.xml'
-            }
-        }
     }
 
     post {
